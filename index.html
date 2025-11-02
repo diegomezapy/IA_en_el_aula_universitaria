@@ -1,1 +1,787 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Virtual: IA para Optimizar Procesos de Enseñanza y Aprendizaje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <img src="imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
+  <img src="facen-logo.png" alt="FACEN Logo">
+  
+    <style>
+        :root {
+            --primary-color: #0A4FA3;
+            --secondary-color: #4D4D4D;
+            --accent-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray: #e9ecef;
+            --dark-gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .facen-logo {
+            height: 40px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 79, 163, 0.8), rgba(10, 79, 163, 0.8)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .free-badge {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Instructor Section */
+        .instructor {
+            padding: 4rem 0;
+            background-color: var(--accent-color);
+        }
+        
+        .instructor-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .instructor-image {
+            flex: 0 0 300px;
+        }
+        
+        .instructor-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .instructor-info p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Content Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Schedule */
+        .schedule {
+            background-color: var(--accent-color);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        
+        .schedule-table th, .schedule-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .schedule-table tr:nth-child(even) {
+            background-color: white;
+        }
+        
+        .time {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        /* Requirements */
+        .requirements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .requirement-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Free Workshop Banner */
+        .free-banner {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .free-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .free-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .free-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .free-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .benefit-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+        }
+        
+        .btn-free {
+            background-color: white;
+            color: #28a745;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .instructor-content {
+                flex-direction: column;
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+            }
+            
+            .benefits {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="facen-logo.png" alt="FACEN Logo" class="facen-logo">
+                <div class="logo">Taller IA Educativa</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#instructor">Instructor</a></li>
+                    <li><a href="#contenido">Contenido</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#requisitos">Requisitos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="free-badge">TALLER GRATUITO</div>
+            <h1>Taller Virtual: IA para Optimizar Procesos de Enseñanza y Aprendizaje en la Universidad</h1>
+            <p>Un taller sincrónico de dos horas en modalidad virtual, orientado a docentes universitarios para incorporar IA de forma responsable en el ciclo didáctico.</p>
+            <a href="#contenido" class="btn">Explorar Contenido</a>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="instructor">
+        <div class="container">
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
+                </div>
+                <div class="instructor-info">
+                    <h2>Responsable: Diego Bernardo Meza Bogado</h2>
+                    <p>Experto en integración de inteligencia artificial en procesos educativos con amplia experiencia en el diseño de flujos técnicos mínimos viables para la optimización de la enseñanza y el aprendizaje.</p>
+                    <p>Especialista en ecosistemas Google, diseño de instrumentos de recolección de datos y creación de tableros estadísticos para el seguimiento de indicadores educativos.</p>
+                    <p>Comprometido con la ética, la gobernanza y la seguridad en el uso de tecnologías educativas.</p>
+                    <a href="#contacto" class="btn">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="contenido" class="content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contenido del Taller</h2>
+                <p>Explora los diferentes aspectos del taller a través de nuestras secciones especializadas</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="openTab(event, 'objetivos')">Objetivos</div>
+                <div class="tab" onclick="openTab(event, 'resultados')">Resultados de Aprendizaje</div>
+                <div class="tab" onclick="openTab(event, 'flujo')">Flujo Técnico</div>
+                <div class="tab" onclick="openTab(event, 'gobernanza')">Gobernanza y Ética</div>
+            </div>
+            
+            <div id="objetivos" class="tab-content active">
+                <div class="card">
+                    <h3>Objetivo General</h3>
+                    <p>Capacitar a docentes para integrar IA de forma responsable y reproducible en actividades de aula, retroalimentación y evaluación rápida, utilizando un flujo técnico mínimo instrumentado con Google y un tablero estadístico para seguimiento.</p>
+                </div>
+            </div>
+            
+            <div id="resultados" class="tab-content">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Formulación de Prompts</h3>
+                        <p>Formular prompts alineados a objetivos pedagógicos, aplicar una lista de chequeo breve de calidad y documentar el contexto didáctico.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <h3>Especificación Funcional</h3>
+                        <p>Definir la especificación funcional de un instrumento de recolección de datos en Google, con campos, validaciones y consentimiento.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-table"></i></div>
+                        <h3>Estructura de Hoja de Cálculo</h3>
+                        <p>Estructurar una hoja de cálculo con pestañas para datos crudos, diccionario y métricas, contemplando tipos de datos y claves mínimas.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Fuente para Looker Studio</h3>
+                        <p>Preparar una fuente de datos lista para su conexión a Looker Studio, con KPIs básicos, dimensiones y series temporales.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="flujo" class="tab-content">
+                <div class="cards">
+                    <div class="card">
+                        <h3>Instrumento de Recolección</h3>
+                        <p>En el ecosistema Google, registra consentimiento, rol, unidad académica, experiencia con IA en escala Likert, uso didáctico propuesto, barreras, expectativas y observaciones. Debe almacenar correo institucional y marca temporal.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Hoja de Cálculo</h3>
+                        <p>Con tres pestañas: <code>respuestas_raw</code> para captura de envíos, <code>diccionario</code> para metadatos de variables, <code>metricas</code> para KPIs calculados y fecha de última actualización.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Procesamiento</h3>
+                        <p>Al momento del envío, normalización mínima, tipificación y actualización de indicadores, contemplando conteo total, proporción de consentimiento, media de experiencia y términos más frecuentes en campos abiertos.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Tablero Estadístico</h3>
+                        <p>En Looker Studio, conectado a <code>respuestas_raw</code> y <code>metricas</code>, con KPIs, desagregaciones por rol y unidad, serie temporal de envíos y resúmenes de texto.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="gobernanza" class="tab-content">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Minimización de Datos</h3>
+                        <p>Solicitar solo variables necesarias, evitar datos sensibles o identificadores innecesarios.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                        <h3>Consentimiento Informado</h3>
+                        <p>Comunicación clara del propósito del instrumento, uso interno, posibilidad de baja.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-lock"></i></div>
+                        <h3>Control de Permisos</h3>
+                        <p>Visibilidad limitada en Drive y en el tablero, registros de acceso cuando corresponda.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-user-check"></i></div>
+                        <h3>Verificación Humana</h3>
+                        <p>Revisión muestral de respuestas y de métricas en cada actualización.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="agenda" class="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>Agenda Detallada</h2>
+                <p>120 minutos de contenido práctico y aplicable</p>
+            </div>
+            
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Tiempo</th>
+                        <th>Actividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time">10 min</td>
+                        <td>Apertura, objetivos, alcance y límites de la IA en docencia, integridad académica, privacidad, verificación humana.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">15 min</td>
+                        <td>Prompting responsable, formulación alineada a resultados de aprendizaje, lista de chequeo de calidad, formatos de salida estructurados.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">10 min</td>
+                        <td>Arquitectura mínima viable, descripción conceptual del flujo, instrumento Google, hoja de cálculo, tablero estadístico.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">35 min</td>
+                        <td>Laboratorio de diseño, especificación funcional del instrumento, definición de campos, validaciones, consentimiento, política de acceso.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">25 min</td>
+                        <td>Estructura de la hoja de cálculo, pestañas, diccionario, métricas, claves mínimas, preparación para Looker Studio.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">15 min</td>
+                        <td>Diseño individual, adaptación del flujo a una actividad propia por cátedra, criterios de adopción en una semana.</td>
+                    </tr>
+                    <tr>
+                        <td class="time">10 min</td>
+                        <td>Cierre, evaluación de satisfacción, próximos pasos, soporte y acompañamiento.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section id="requisitos" class="requirements-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Público, Requisitos y Modalidad</h2>
+                <p>Todo lo que necesitas saber para participar en el taller</p>
+            </div>
+            
+            <div class="requirements">
+                <div class="requirement">
+                    <div class="requirement-icon"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h3>Público</h3>
+                        <p>Docentes de grado y posgrado, coordinaciones académicas.</p>
+                    </div>
+                </div>
+                <div class="requirement">
+                    <div class="requirement-icon"><i class="fas fa-list-check"></i></div>
+                    <div>
+                        <h3>Requisitos</h3>
+                        <p>Conectividad estable, cuenta Google institucional, acceso a Google Drive y Sheets, navegador actualizado.</p>
+                    </div>
+                </div>
+                <div class="requirement">
+                    <div class="requirement-icon"><i class="fas fa-laptop"></i></div>
+                    <div>
+                        <h3>Modalidad</h3>
+                        <p>Sesión sincrónica por videoconferencia, recursos compartidos en carpeta institucional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Workshop Banner -->
+    <section class="free-banner">
+        <div class="container">
+            <div class="free-content">
+                <h2>¡Participa Gratis en Nuestro Taller!</h2>
+                <p>Únete a esta iniciativa educativa sin costo alguno y adquiere habilidades valiosas para integrar IA en tu práctica docente.</p>
+                
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                        <div>Certificado de Participación</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-download"></i></div>
+                        <div>Material Complementario</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                        <div>Soporte Post-Taller</div>
+                    </div>
+                </div>
+                
+                <a href="#contacto" class="btn btn-free">Solicitar Información</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre el Taller</h3>
+                    <p>Un espacio de aprendizaje práctico para integrar IA de forma responsable en procesos educativos universitarios.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#instructor">Instructor</a></li>
+                        <li><a href="#contenido">Contenido</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> diego.meza@universidad.edu</li>
+                        <li><i class="fas fa-phone"></i> +54 9 11 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Universidad Nacional, Ciudad</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Taller Virtual: IA para Optimizar Procesos de Enseñanza y Aprendizaje. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
